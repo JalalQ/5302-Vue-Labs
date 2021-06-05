@@ -1,0 +1,17 @@
+{
+  "name": "vue-project",
+  "version": "1.0.0",
+  "description": "Vue Project Folder for http5302",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Vue.js"
+  ],
+  "author": "Jalaluddin Qureshi",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.6.13"
+  }
+}
