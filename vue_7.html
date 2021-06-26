@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>J1 Practice</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			.formfield{margin-bottom:10px;}
+		</style>
+	</head>
+	<body>
+	<p><a href="https://cemc.uwaterloo.ca/contests/computing/2021/index.html">Problem J1: Boiling Water.</a></p>
+	<div id="app">
+		<div class="formfield">
+			<label>Boiling Water &#176; C: <label> <input v-model="boil">
+		</div>
+
+		<div id="result">
+			<div><label>Show diagnostics:</label><input type="checkbox" v-model="treat_diagnostics"></div>
+			<div v-if="treat_diagnostics">
+				<p>Boil Temp: {{boil}}<p>
+				<p>Level (natural language): {{cal_natural}}</p>		
+			</div>
+			<div>
+				<p>Pressure: {{cal_pressure}}</p>
+				<p>Level: {{cal_level}}</p>	
+			</div>
+		</div>
+	</div>
+	
+	<script>
+	var app = new Vue({
+		el: '#app',
+		data:{
+			treat_diagnostics:false,
+			boil:100, //in degree centigrade
+			pressure:100, //in kPa
+			level:0,
+			level_natural: 'At Sea Level',
+		},
+		computed:{
+			cal_pressure:function(){
+				return 5 * this.boil - 400;	
+			},
+			cal_level:function(){
+				if (this.boil<100) {
+					return 1;
+				}
+				else if (this.boil>100) {
+					return -1;
+				}
+				else {
+					return 0;
+				}		
+			},
+			cal_natural:function() {
+				if (this.boil<100) {
+					return 'Above Sea Level';
+				}
+				else if (this.boil>100) {
+					return 'Below Sea Level';
+				}
+				else {
+					return 'At Sea Level';
+				}
+			}
+		}
+	});
+	
+	</script>
+	<!--
+		v-model will allow you to quickly bind form elements to the data property.
+		Make sure to set a default value!
+		The Computed property can be used like data, except for values that are calculated from data properties.
+		In this example 'treat_total' is computed from data properties, and 'is_happy' is computed from 'treat_total'.
+		
+		ASYNCHRONOUS LEARNING EXERCISE : J1
+		- Find any J1 problem
+		- Imagine an interface that allows the user to enter data on the webpage
+		- Build using v-model and computed properties!
+	
+	-->
+	</body>
+</html>
