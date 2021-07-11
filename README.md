@@ -1,6 +1,6 @@
 # Introduction
 
-This repository contains mini-lab activities completed for the http5302. Each of the html file has commented description to describe what was achieved in the lab activities.
+This repository contains mini-lab activities completed for the http5302. Each of the html file has commented description to describe what was achieved in the lab activities. Learning from these lab activity is then used to build a [proof-of-concept board game](https://github.com/JalalQ/5302-Vue-Boardgame).
 
 ## Screenshots
 
